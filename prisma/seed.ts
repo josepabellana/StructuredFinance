@@ -1,60 +1,41 @@
 /**
  * Seeds the database with parsed CSV's from './data/'
  */
+'use strict';
+import  request from 'request';
 
-import { readFileSync } from "fs";
-import { parse } from "csv-parse/sync";
+
 import prisma from "./instance";
 
-// settings for the csv parser
-const parseSettings = {
-    columns: true,
-    skip_empty_lines: true
-};
+//J&J
+const OVERVIEW__QUERY = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=JNJ&apikey=O6TPBPK501WMPD9J";
 
-// load csv files and trim whitespace
-const accountsFile: string = readFileSync('./prisma/data/accounts.csv').toString().trim();
-const categoriesFile: string = readFileSync('./prisma/data/categories.csv').toString().trim();
-const transactionsFile: string = readFileSync('./prisma/data/transactions.csv').toString().trim();
+var parsedCompany:any = {}
 
-// parse csv files using csv-parse library
-const parsedAccounts = parse(accountsFile, parseSettings);
-const parsedCategories = parse(categoriesFile, parseSettings);
-const parsedTransactions = parse(transactionsFile, parseSettings).map((t) => {
-    // transaction needs additional parsing to constrain into the Transaction type
-    const transform = {
-        id: t.id,
-        reference: t.reference,
-        amount: Number.parseFloat(t.amount),
-        currency: t.currency,
-        date: new Date(t.date),
-        accountId: t.accountId
+
+request.get({
+    url: OVERVIEW__QUERY,
+    json: true,
+    headers: {'User-Agent': 'request'}
+  }, (err:any, res:any, data:any) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is successfully parsed as a JSON object:
+      console.log(data);
+      parsedCompany = data;
     }
-    // if there is a categoryId in the parsed object we add the optional field
-    if (t.categoryId)
-        transform['categoryId'] = t.categoryId;
-    return transform;
 });
+
 
 // insert data into db, resolving all async promises
 // this code can compartimentalize further creating an abstract factory of ".createMany()" functions
 Promise.all([
     async function () {
-        await prisma.account.createMany({
-            data: parsedAccounts,
-            skipDuplicates: true,
-        });
-    }(),
-    async function () {
-        await prisma.category.createMany({
-            data: parsedCategories,
-            skipDuplicates: true,
-        });
-    }(),
-    async function () {
-        await prisma.transaction.createMany({
-            data: parsedTransactions,
-            skipDuplicates: true,
+        await prisma.company.create({
+            data: parsedCompany
         });
     }()
 ]);

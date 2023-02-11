@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git add . && git commit -m 'x' && git push"
+    "commit": "git add . && git commit -m 'x' && git push",
+    "migrate": "npx prisma generate && npx prisma db push && npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,14 @@
   },
   "homepage": "https://github.com/josepabellana/StructuredFinance#readme",
   "dependencies": {
-    "@prisma/client": "^4.10.1"
+    "@prisma/client": "^4.10.1",
+    "@types/node": "^18.13.0",
+    "prisma": "^4.10.1",
+    "request": "^2.88.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/request": "^2.48.8"
   }
 }
