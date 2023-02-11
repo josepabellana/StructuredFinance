@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/josepabellana/StructuredFinance/issues"
   },
-  "homepage": "https://github.com/josepabellana/StructuredFinance#readme"
+  "homepage": "https://github.com/josepabellana/StructuredFinance#readme",
+  "dependencies": {
+    "@prisma/client": "^4.10.1"
+  }
 }
