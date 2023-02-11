@@ -1,39 +1,56 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .header {
   height: var(--header-height);
-  width: 100%;
+
+  width: 90%;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.button_login{
+  text-decoration: none;
+  border: 1px solid #fff;
+  font-weight: bold;
+  border-radius: 12px;
+  margin: 0px;
+  padding: 9px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  background-color: #000;
+}
+.button_login:hover{
+  background-color: #fff;
+  color: #000;
+}
 .trademark {
   padding-top: 1px;
   font-size: 6px;
-  margin-top: 15px;
+  margin-top: 8px;
   font-weight: bold;
   display: inline-block;
   vertical-align: top;
+  
   padding: 0;
   line-height: 0;
 }
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
+  height: 100%;
 }
 
 .description a {
