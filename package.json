@@ -1,0 +1,19 @@
+{
+  "name": "structuredfinance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git add . && git commit -m 'x' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josepabellana/StructuredFinance.git"
+  },
+  "author": "JOSEP ABELLANA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josepabellana/StructuredFinance/issues"
+  },
+  "homepage": "https://github.com/josepabellana/StructuredFinance#readme"
+}
