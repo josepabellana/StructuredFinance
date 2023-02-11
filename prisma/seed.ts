@@ -2,9 +2,6 @@
  * Seeds the database with parsed CSV's from './data/'
  */
 'use strict';
-import request from 'request';
-
-
 import prisma from "./instance";
 
 //J&J
@@ -16,16 +13,17 @@ const url = new URL(BASE_API);
 
 Promise.all([
 
-    async function () {
-        
+    async function () {   
         const response = await fetch(url);
         const data = await response.json()
+        console.log(data)
         await prisma.company.create({
             data: {
-                symbol: data.symbol,
-                assetType: data.assetType,
-                name: data.name,
-                description: data.description
+                symbol: data.Symbol as string,
+                assetType: data.AssetType as string,
+                name: data.Name as string,
+                description: data.Description as string
+                
             }
         });
     }(),
