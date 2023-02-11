@@ -16,7 +16,6 @@ Promise.all([
     async function () {   
         const response = await fetch(url);
         const data = await response.json()
-        console.log(data)
         await prisma.company.create({
             data: {
                 symbol: data.Symbol as string,
