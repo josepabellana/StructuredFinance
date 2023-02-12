@@ -11,10 +11,8 @@ const url = new URL(BASE_API);
 
 
 
-Promise.all([
-
-    async function () {   
-        const response = await fetch(url);
+async function main() {
+    const response = await fetch(url);
         const data = await response.json()
         await prisma.company.create({
             data: {
@@ -25,5 +23,14 @@ Promise.all([
                 
             }
         });
-    }(),
-]);
+}
+
+main()
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
