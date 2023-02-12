@@ -9,11 +9,11 @@ const CLIENT_URL = process.env.CLIENT_URL
 const router = require("./router");
 
 const corsConfig = {
-    origin: [SERVER_URL || "http://localhost:3000", CLIENT_URL || "http://localhost:3001"],
+    origin: [SERVER_URL || "http://localhost:3001", CLIENT_URL || "http://localhost:3000"],
     credentials: true,
 };
-app.use(router);
 app.use(cors(corsConfig));
+app.use(router);
 app.use(express.json());
 
 const server = app.listen(SERVER_PORT, (err) => {

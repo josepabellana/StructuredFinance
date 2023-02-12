@@ -1,6 +1,4 @@
-/**
- * Seeds the database with parsed CSV's from './data/'
- */
+
 'use strict';
 import prisma from "./instance";
 

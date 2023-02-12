@@ -1,3 +1,4 @@
+import React, { useRef, useEffect, useState} from 'react';
 import Head from "next/head";
 import SqlPrompt from "./SQLprompt";
 import { Inter } from "@next/font/google";
@@ -6,6 +7,24 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [companies,setCompanies] = useState([])
+  
+  useEffect(()=>{
+    (async ()=>{
+      const response = await fetch('http://localhost:3001/companies',{
+        method: 'GET'
+      });
+      const data = await response.json()
+      console.log(data)
+      setCompanies(data);
+    })()
+  },[])
+
+
+  const handleChange = (event:any) => {
+    console.log(event.target.value);
+  };
+
 
   return (
     <>
@@ -15,6 +34,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.58.2/lib/codemirror.min.css" />
+        
       </Head>
       <main className={styles.main}>
         <div className={styles.header}>
@@ -29,8 +49,14 @@ export default function Home() {
           <button className={styles.button_login}> Login</button>
         </div>
         <div className={styles.description}>
-          
           <h2>Prompt your SQL</h2>
+          <select onChange={handleChange} name="companies" id="companies-select">
+          {companies.map((option:any, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+      </select>
           <SqlPrompt />
         </div>
 

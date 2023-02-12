@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 router.get("/companies", async (req, res) => {
   const findCompanies = await prisma.company.findMany({});
-  res.json(findCompanies)
+  res.json(findCompanies.map(el=>el.name)) //return names of companies
 });
 
 router.get("*", (req, res) => {
