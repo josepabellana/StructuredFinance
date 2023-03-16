@@ -16,7 +16,7 @@ const SqlPrompt = () => {
         //   setResults(await executeSql(query));
         }}
       >
-        Run Query
+        Run
       </button>
       <table>
         <thead>
