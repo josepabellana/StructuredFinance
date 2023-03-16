@@ -6,10 +6,6 @@ const SqlPrompt = () => {
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
   const [results, setResults] = useState([]);
-
-  
-
-  
   return (
     <>
       <textarea value={query} onChange={(e) => setQuery(e.target.value)} id="sql-query"/>
