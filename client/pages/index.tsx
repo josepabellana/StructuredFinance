@@ -44,7 +44,7 @@ export default function Home() {
             <span className={styles.trademark}>TM</span>{" "}
           </h1>
           <h2>
-					Get Financial Information for FREE - 
+					Get Financial Information for FREE - Powered by Python
 	        </h2>
           <button className={styles.button_login}> Login</button>
         </div>
