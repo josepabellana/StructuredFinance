@@ -4,8 +4,8 @@ import { useQuery } from "react-query";
 
 const SqlPrompt = () => {
   const [query, setQuery] = useState("");
-  const [error, setError] = useState("");
-  const [results, setResults] = useState([]);
+  const [error] = useState("");
+  const [results] = useState([]);
   return (
     <>
       <textarea value={query} onChange={(e) => setQuery(e.target.value)} id="sql-query"/>
