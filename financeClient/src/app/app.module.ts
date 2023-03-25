@@ -21,4 +21,6 @@ import { SidePanelComponent } from './side-panel/side-panel.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
