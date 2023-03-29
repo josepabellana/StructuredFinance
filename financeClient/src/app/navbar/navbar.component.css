@@ -1,0 +1,8 @@
+.nav__container{
+    width: 100vw;
+    height: 4vh;
+    box-shadow: outset;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
