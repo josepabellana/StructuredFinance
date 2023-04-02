@@ -5,6 +5,7 @@ const cors = require("cors");
 
 //openBB
 
+//extract and classify info x company depending on a cap
 const SERVER_PORT = process.env.SERVER_PORT;
 const SERVER_URL = process.env.SERVER_URL;
 const CLIENT_URL = process.env.CLIENT_URL
