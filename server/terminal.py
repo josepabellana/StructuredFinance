@@ -1,4 +1,7 @@
-from openbb_terminal.terminal.controller import parse_args_and_run
-
-if __name__ == "__main__":
-    parse_args_and_run()
+import yfinance as yf
+ticker = yf.Ticker('GOOGL').info
+market_price = ticker['regularMarketPrice']
+previous_close_price = ticker['regularMarketPreviousClose']
+print('Ticker: GOOGL')
+print('Market Price:', market_price)
+print('Previous Close Price:', previous_close_price)
