@@ -2,7 +2,7 @@
 import yfinance as yf
 
 # Set the ticker as MSFT
-msft = yf.Ticker("MSFT")
+msft = yf.Ticker("MSFT").info
 
 # get price to book
 pb = msft.info['priceToBook']
@@ -22,3 +22,14 @@ EBIT = msft.financials.loc['Earnings Before Interest and Taxes']
 plt.bar(EBIT.index, EBIT.values)
 plt.ylabel("EBIT")
 plt.show()
+
+
+
+# show income statement
+msft.financials
+# show balance heet
+msft.balance_sheet
+# show cashflow
+msft.cashflow
+# show other info
+msft.info
