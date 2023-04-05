@@ -11,3 +11,8 @@ print('Price to Book Ratio is: %.2f' % pb)
 print('Price to Earnings Ratio is: %.2f' % pe)
 
 
+# show revenues
+revenue = msft.financials.loc['Total Revenue']
+plt.bar(revenue.index, revenue.values)
+plt.ylabel("Total Revenues")
+plt.show()
