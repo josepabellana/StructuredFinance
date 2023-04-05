@@ -19,3 +19,19 @@ import matplotlib.pyplot as plt
 # Plot adjusted close price data
 data['Adj Close'].plot()
 plt.show()
+
+# Plot the adjusted close price
+data['Adj Close'].plot(figsize=(10, 7))
+
+# Define the label for the title of the figure
+plt.title("Adjusted Close Price of %s" % ticker, fontsize=16)
+
+# Define the labels for x-axis and y-axis
+plt.ylabel('Price', fontsize=14)
+plt.xlabel('Year', fontsize=14)
+
+# Plot the grid lines
+plt.grid(which="major", color='k', linestyle='-.', linewidth=0.5)
+
+# Show the plot
+plt.show()
