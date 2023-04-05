@@ -16,3 +16,9 @@ revenue = msft.financials.loc['Total Revenue']
 plt.bar(revenue.index, revenue.values)
 plt.ylabel("Total Revenues")
 plt.show()
+
+
+EBIT = msft.financials.loc['Earnings Before Interest and Taxes']
+plt.bar(EBIT.index, EBIT.values)
+plt.ylabel("EBIT")
+plt.show()
