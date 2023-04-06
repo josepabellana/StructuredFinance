@@ -9,3 +9,4 @@ v1.0.0
 - Angular frontend that allows users to select a ticker
 - Only fundamental data of the company is displayed
 - All data will come from yfinance python library that consumes yahoo finance data
+- Very focused on frontEnd looking 
