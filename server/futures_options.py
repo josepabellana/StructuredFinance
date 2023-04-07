@@ -19,3 +19,14 @@ plt.xlabel('Date', fontsize=14)
 # Plot the grid lines
 plt.grid(which="major", color='k', linestyle='-.', linewidth=0.5)
 plt.show()
+
+
+from datetime import date
+from nsepy import get_history
+stock_opt = get_history(symbol="HDFC",
+ start=date(2019, 1, 15),
+ end=date(2019, 2, 1),
+ option_type="CE",
+ strike_price=2000,
+ expiry_date=date(2019, 2, 28))
+stock_opt.head()
