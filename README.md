@@ -19,3 +19,5 @@ v1.0.0
 v2.0.0
 
 - Aprender sobre Sandbox PSD2.0
+- Onboard un banco(Sabadell o Caixabank)
+- Propuesta patrimonio
