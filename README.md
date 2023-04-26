@@ -26,3 +26,4 @@ v2.0.0
 v3.0.0
 
 - Open source banking platform for Sandbox PS2 financial system
+- Open Patreon for team funding 
