@@ -21,3 +21,8 @@ v2.0.0
 - Aprender sobre Sandbox PSD2.0
 - Onboard un banco(Sabadell o Caixabank)
 - Propuesta patrimonio
+
+
+v3.0.0
+
+- Open source banking platform for Sandbox PS2 financial system
